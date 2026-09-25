@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<RootNamespace>GameDevKit.Networking.Transport</RootNamespace>
+    <Nullable>enable</Nullable>
+	<IsAotCompatible>true</IsAotCompatible>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="LiteNetLib" Version="2.1.4" />
+  </ItemGroup>
+</Project>
