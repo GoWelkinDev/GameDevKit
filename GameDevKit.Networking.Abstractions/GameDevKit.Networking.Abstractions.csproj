@@ -5,6 +5,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
 	<IsAotCompatible>true</IsAotCompatible>
+
+	<Description>Protocol DTOs</Description>
+	<PackageTags>gamedev;networking;abstractions;dto;messagepack;gowelkin</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

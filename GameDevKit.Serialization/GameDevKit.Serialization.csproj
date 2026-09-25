@@ -5,6 +5,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
 	<RootNamespace>GameDevKit.Serialization</RootNamespace>
 	<IsAotCompatible>true</IsAotCompatible>
+
+	<Description>Config contract, JSON serializer</Description>
+	<PackageTags>gamedev;serialization;json;config;gowelkin</PackageTags>
   </PropertyGroup>
 
 </Project>

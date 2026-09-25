@@ -5,6 +5,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
 	<RootNamespace>GameDevKit.Platforms.Steam</RootNamespace>
 	<IsAotCompatible>true</IsAotCompatible>
+
+	<Description>Steamworks.NET implementation</Description>
+	<PackageTags>gamedev;platforms;steam;steamworks;gowelkin</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

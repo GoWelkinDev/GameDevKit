@@ -1,0 +1,27 @@
+<Project>
+  <PropertyGroup>
+    <Authors>GoWelkin Network</Authors>
+    <Company>GoWelkin Network</Company>
+    <Copyright>Copyright (c) 穹空网络(GoWelkin Network)</Copyright>
+
+    <PackageLicenseExpression>EPL-2.0</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+
+    <Version>1.0.0</Version>
+    <PackageProjectUrl>https://github.com/GoWelkinDev/GameDevKit</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/GoWelkinDev/GameDevKit</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <PackageId>GoWelkinDev.$(MSBuildProjectName)</PackageId>
+
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+
+    <PackageTags>gamedev;game;dotnet;gowelkin</PackageTags>
+  </PropertyGroup>
+</Project>
