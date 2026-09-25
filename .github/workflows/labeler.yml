@@ -1,0 +1,102 @@
+name: Labeler
+on: [pull_request_target]
+
+jobs:
+  # 检查配置文件是否存在
+  check-config:
+    runs-on: ubuntu-latest
+    outputs:
+      config-exists: ${{ steps.check.outputs.config-exists }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          
+      - name: Check if labeler config exists
+        id: check
+        run: |
+          if [ -f ".github/labeler.yml" ]; then
+            echo "config-exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "config-exists=false" >> $GITHUB_OUTPUT
+          fi
+
+  # 基于路径的标签
+  path-labeler:
+    runs-on: ubuntu-latest
+    needs: check-config
+    permissions:
+      contents: read
+      pull-requests: write
+    # 只有在配置文件存在时才运行
+    if: needs.check-config.outputs.config-exists == 'true'
+    steps:
+      - uses: actions/labeler@v4
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+
+  # 基于 commit 信息的标签
+  commit-labeler:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # 获取所有历史记录，以便检查 commits
+          
+      - name: Check for breaking changes in commits
+        id: check-breaking
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          
+          BASE_SHA=${{ github.event.pull_request.base.sha }}
+          HEAD_SHA=${{ github.event.pull_request.head.sha }}
+          
+          if git log --oneline --grep='BREAKING CHANGE:' --grep='!:' $BASE_SHA..$HEAD_SHA | grep -q .; then
+            echo "has-breaking-changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has-breaking-changes=false" >> $GITHUB_OUTPUT
+          fi
+          
+      - name: Add Breaking Change label
+        if: steps.check-breaking.outputs.has-breaking-changes == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo, number } = context.issue;
+            await github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number: number,
+              labels: ['Breaking Change']
+            });
+            console.log('已添加 Breaking Change 标签');
+
+      - name: Check for docs commits
+        id: check-docs
+        run: |
+          BASE_SHA=${{ github.event.pull_request.base.sha }}
+          HEAD_SHA=${{ github.event.pull_request.head.sha }}
+          
+          if git log --oneline --grep='docs' $BASE_SHA..$HEAD_SHA | grep -q .; then
+            echo "has=true" >> $GITHUB_OUTPUT
+          else
+            echo "has=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Add docs label
+        if: steps.check-docs.outputs.has == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo, number } = context.issue;
+            await github.rest.issues.addLabels({
+              owner,
+              repo,
+              issue_number: number,
+              labels: ['Area: docs']
+            });

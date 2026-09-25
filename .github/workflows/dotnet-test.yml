@@ -1,0 +1,50 @@
+name: .NET Unit Test
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '**/*.cs'
+      - '.github/workflows/dotnet-test.yml'
+  pull_request:
+    paths:
+      - '**/*.cs'
+      - '.github/workflows/dotnet-test.yml'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .
+
+    steps:
+      - name: check-out
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: setting .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: restore-libraries
+        run: dotnet restore
+
+      - name: build project
+        run: dotnet build --configuration Release --no-restore
+
+      - name: run unit tests
+        run: dotnet test --solution GameDevKit.sln --configuration Release --report-trx --results-directory ./TestResults
+
+      - name: publish test results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: '**/TestResults/*.trx'
+          check_name: '.NET Tests'
+          comment_title: 'Test Results'
+          comment_mode: always
+          compare_to_earlier_commit: true
+          report_individual_runs: true

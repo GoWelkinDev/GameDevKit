@@ -1,0 +1,13 @@
+name: Other
+description: 无标题
+title: "请替换为可描述问题的标题"
+labels: []
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 描述问题
+      description: |
+        请尽可能详细地描述您要报告的问题
+    validations:
+      required: true

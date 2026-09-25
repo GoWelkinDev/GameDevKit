@@ -1,0 +1,89 @@
+name: PR Label Management on Close/Merge
+
+on:
+  pull_request_target:
+    types: [closed]
+
+jobs:
+  manage-labels:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+    # 只在 PR 关闭时运行（包括合并和直接关闭）
+    if: github.event.pull_request.state == 'closed'
+    
+    steps:
+      - name: Check PR merge status
+        id: check-merge
+        run: |
+          if [ "${{ github.event.pull_request.merged }}" = "true" ]; then
+            echo "pr-merged=true" >> $GITHUB_OUTPUT
+          else
+            echo "pr-merged=false" >> $GITHUB_OUTPUT
+          fi
+
+      # 移除指定标签（无论合并还是关闭都执行）
+      - name: Remove specific labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo, number } = context.issue;
+            
+            const labelsToRemove = [
+              'Status: awaiting',
+              'Status: working',
+              'Status: verify',
+              'Status: to verify',
+              'Status: need help'
+            ];
+            
+            // 获取当前 PR 的所有标签
+            const { data: currentLabels } = await github.rest.issues.listLabelsOnIssue({
+              owner,
+              repo,
+              issue_number: number
+            });
+            
+            // 移除指定的标签
+            for (const label of labelsToRemove) {
+              if (currentLabels.find(l => l.name === label)) {
+                try {
+                  await github.rest.issues.removeLabel({
+                    owner,
+                    repo,
+                    issue_number: number,
+                    name: label
+                  });
+                  console.log(`已移除标签: ${label}`);
+                } catch (error) {
+                  console.log(`移除标签失败 ${label}: ${error.message}`);
+                }
+              }
+            }
+
+      # 根据合并状态添加不同标签
+      - name: Add status labels based on merge status
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo, number } = context.issue;
+            const isMerged = ${{ steps.check-merge.outputs.pr-merged }};
+            
+            if (isMerged) {
+              await github.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number: number,
+                labels: ['Status: done']
+              });
+              console.log('已添加合并相关标签');
+            } else {
+              await github.rest.issues.addLabels({
+                owner,
+                repo,
+                issue_number: number,
+                labels: ['Status: refuse']
+              });
+              console.log('已添加关闭相关标签');
+            }

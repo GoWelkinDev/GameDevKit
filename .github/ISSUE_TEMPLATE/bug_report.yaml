@@ -1,0 +1,50 @@
+name: Bug 反馈
+description: 提交错误或崩溃报告
+title: "请写一个信息丰富的标题，用几句话描述这个bug"
+labels: ["Status: to verify"]
+type: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 感谢您填写错误报告，请确认您的问题未在 [Issues](https://github.com/GoWelkinDev/GameDevKit/issues) 中提交过
+        ## 如果是新问题，请尽可能详细描述
+        
+  - type: dropdown
+    id: game_version
+    attributes:
+      label: 你是否正在运行最新版本的 GameDevKit?
+      description: 如果不是，你可能需要先将依赖库更新到最新版本
+      options:
+        - 是的, 我正在运行最新版本的 GameDevKit.
+        - 是的, 我正在运行此仓库的最新提交版本 (专家)
+        - 不, 我需要下载新版本 GameDevKit.
+    validations:
+      required: true
+  - type: dropdown
+    id: os_type
+    attributes:
+      label: 你使用的操作系统是?
+      description: 请从下拉列表中选择您的操作系统
+      options:
+        - Windows
+        - Linux
+        - MacOS
+    validations:
+      required: true
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: 描述问题
+      description: 发生了什么事？
+      placeholder: 告诉我们你发现了什么
+    validations:
+      required: true
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: 描述复现问题的步骤
+      description: 这是怎么发生的？如果可能的话，请提供重现错误的步骤。错误是否会随着稍微改变的步骤而消失？
+      placeholder: 告诉我们你所做的事
+    validations:
+      required: false
