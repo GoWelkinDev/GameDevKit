@@ -5,7 +5,7 @@ VisualStudioVersion = 18.8.12009.203
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Core", "GameDevKit.Core\GameDevKit.Core.csproj", "{1F9B7AFD-BA9B-4659-8A55-A9031D1CE43C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Logging.Abstractions", "GameDevKit.Logging\GameDevKit.Logging.Abstractions.csproj", "{B1CDB9C4-CD78-45D3-BE25-80C66BF1016E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Logging.Abstractions", "GameDevKit.Logging.Abstractions\GameDevKit.Logging.Abstractions.csproj", "{B1CDB9C4-CD78-45D3-BE25-80C66BF1016E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Serialization", "GameDevKit.Serialization\GameDevKit.Serialization.csproj", "{1C7BB7D1-E931-4950-892F-7D1124B64A12}"
 EndProject
