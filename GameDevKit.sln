@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Core", "GameDevK
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Logging.Abstractions", "GameDevKit.Logging.Abstractions\GameDevKit.Logging.Abstractions.csproj", "{B1CDB9C4-CD78-45D3-BE25-80C66BF1016E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Serialization", "GameDevKit.Serialization\GameDevKit.Serialization.csproj", "{1C7BB7D1-E931-4950-892F-7D1124B64A12}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Serialization.Json", "GameDevKit.Serialization.Json\GameDevKit.Serialization.Json.csproj", "{1C7BB7D1-E931-4950-892F-7D1124B64A12}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Platforms.Abstractions", "GameDevKit.Platforms\GameDevKit.Platforms.Abstractions.csproj", "{E6A02567-0F0E-4C6A-9648-5B4E3AF8A815}"
 EndProject
@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "解决方案项", "解决�
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Serialization.Abstractions", "GameDevKit.Serialization.Abstractions\GameDevKit.Serialization.Abstractions.csproj", "{283BDBCA-8375-43D7-A391-76F53A72898E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -130,6 +132,18 @@ Global
 		{873528D4-E0FD-4794-80B1-1341BE53F9AA}.Release|x64.Build.0 = Release|x64
 		{873528D4-E0FD-4794-80B1-1341BE53F9AA}.Release|x86.ActiveCfg = Release|Any CPU
 		{873528D4-E0FD-4794-80B1-1341BE53F9AA}.Release|x86.Build.0 = Release|Any CPU
+		{283BDBCA-8375-43D7-A391-76F53A72898E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{283BDBCA-8375-43D7-A391-76F53A72898E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{283BDBCA-8375-43D7-A391-76F53A72898E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{283BDBCA-8375-43D7-A391-76F53A72898E}.Debug|x64.Build.0 = Debug|Any CPU
+		{283BDBCA-8375-43D7-A391-76F53A72898E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{283BDBCA-8375-43D7-A391-76F53A72898E}.Debug|x86.Build.0 = Debug|Any CPU
+		{283BDBCA-8375-43D7-A391-76F53A72898E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{283BDBCA-8375-43D7-A391-76F53A72898E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{283BDBCA-8375-43D7-A391-76F53A72898E}.Release|x64.ActiveCfg = Release|Any CPU
+		{283BDBCA-8375-43D7-A391-76F53A72898E}.Release|x64.Build.0 = Release|Any CPU
+		{283BDBCA-8375-43D7-A391-76F53A72898E}.Release|x86.ActiveCfg = Release|Any CPU
+		{283BDBCA-8375-43D7-A391-76F53A72898E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

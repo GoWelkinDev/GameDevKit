@@ -3,10 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-	<RootNamespace>GameDevKit.Serialization</RootNamespace>
-	<IsAotCompatible>true</IsAotCompatible>
+	<RootNamespace>GameDevKit.Serialization.Abstractions</RootNamespace>
+    <Nullable>enable</Nullable>
 
-	<Description>Config contract, JSON serializer</Description>
+	<Description>Config contract</Description>
 	<PackageTags>gamedev;serialization;json;config;gowelkin</PackageTags>
   </PropertyGroup>
 

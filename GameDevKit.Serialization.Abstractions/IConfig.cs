@@ -8,7 +8,7 @@
 
 using System.Text.Json.Serialization.Metadata;
 
-namespace GameDevKit.Serialization.Interfaces
+namespace GameDevKit.Serialization.Abstractions
 {
     /// <summary>
     /// 配置类必须实现此接口，以支持自动补全默认值

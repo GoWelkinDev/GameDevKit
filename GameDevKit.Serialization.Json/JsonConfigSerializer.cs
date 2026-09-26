@@ -6,10 +6,10 @@
 // terms of the Eclipse Public License 2.0 which is available at
 // https://www.eclipse.org/legal/epl-2.0/
 
-using GameDevKit.Serialization.Interfaces;
+using GameDevKit.Serialization.Abstractions;
 using System.Text.Json;
 
-namespace GameDevKit.Serialization
+namespace GameDevKit.Serialization.Json
 {
     public sealed class JsonConfigSerializer<T> where T : class, IConfig<T>, new()
     {

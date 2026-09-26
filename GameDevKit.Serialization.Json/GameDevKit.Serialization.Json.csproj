@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<RootNamespace>GameDevKit.Serialization.Json</RootNamespace>
+	<IsAotCompatible>true</IsAotCompatible>
+
+	<Description>JSON serializer</Description>
+	<PackageTags>gamedev;serialization;json;config;gowelkin</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GameDevKit.Serialization.Abstractions\GameDevKit.Serialization.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
