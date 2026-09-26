@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Logging.Abstract
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Serialization.Json", "GameDevKit.Serialization.Json\GameDevKit.Serialization.Json.csproj", "{1C7BB7D1-E931-4950-892F-7D1124B64A12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Platforms.Abstractions", "GameDevKit.Platforms\GameDevKit.Platforms.Abstractions.csproj", "{E6A02567-0F0E-4C6A-9648-5B4E3AF8A815}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Platforms.Abstractions", "GameDevKit.Platforms.Abstractions\GameDevKit.Platforms.Abstractions.csproj", "{E6A02567-0F0E-4C6A-9648-5B4E3AF8A815}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDevKit.Networking.Abstractions", "GameDevKit.Networking.Abstractions\GameDevKit.Networking.Abstractions.csproj", "{FFDDCBF1-C2F6-478A-9245-57D575397741}"
 EndProject

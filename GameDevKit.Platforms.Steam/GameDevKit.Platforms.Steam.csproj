@@ -17,6 +17,6 @@
   <ItemGroup>
     <ProjectReference Include="..\GameDevKit.Logging.Abstractions\GameDevKit.Logging.Abstractions.csproj" />
     <ProjectReference Include="..\GameDevKit.Networking.Abstractions\GameDevKit.Networking.Abstractions.csproj" />
-    <ProjectReference Include="..\GameDevKit.Platforms\GameDevKit.Platforms.Abstractions.csproj" />
+    <ProjectReference Include="..\GameDevKit.Platforms.Abstractions\GameDevKit.Platforms.Abstractions.csproj" />
   </ItemGroup>
 </Project>
