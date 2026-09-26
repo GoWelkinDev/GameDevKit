@@ -28,7 +28,7 @@ namespace GameDevKit.Platforms.Abstractions
         /// </summary>
         /// <returns>初始化成功返回 true，失败抛出异常</returns>
         /// <exception cref="InvalidOperationException">当游戏平台初始化模式不正确或已经初始化时抛出</exception>
-        /// <exception cref="SteamInitException">当游戏平台初始化失败时抛出</exception>
+        /// <exception cref="PlatformInitException">当游戏平台初始化失败时抛出</exception>
         public bool Initialize();
 
         /// <summary>
