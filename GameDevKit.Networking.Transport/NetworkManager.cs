@@ -103,7 +103,6 @@ namespace GameDevKit.Networking.Transport
 
         void INetEventListener.OnConnectionRequest(ConnectionRequest request)
         {
-            if (NetworkType is NetworkType.Client) return;
             if (_peers.Count >= _maxConnections)
             {
                 request.Reject();
@@ -114,21 +113,18 @@ namespace GameDevKit.Networking.Transport
 
         void INetEventListener.OnPeerConnected(NetPeer peer)
         {
-            if (NetworkType is NetworkType.Client) return;
             _peers[peer.Id] = peer;
             PeerConnected?.Invoke(peer.Id);
         }
 
         void INetEventListener.OnPeerDisconnected(NetPeer peer, DisconnectInfo disconnectInfo)
         {
-            if (NetworkType is NetworkType.Client) return;
             _peers.Remove(peer.Id);
             PeerDisconnected?.Invoke(peer.Id, disconnectInfo);
         }
 
         void INetEventListener.OnNetworkReceive(NetPeer peer, NetPacketReader reader, byte channel, DeliveryMethod deliveryMethod)
         {
-            if (NetworkType is NetworkType.Client) return;
             byte[] data = reader.GetRemainingBytes();
             DataReceived?.Invoke(peer.Id, data);
         }
