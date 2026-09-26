@@ -54,7 +54,7 @@ namespace GameDevKit.Platforms.Steam
         /// </summary>
         /// <returns>初始化成功返回 true，失败抛出异常</returns>
         /// <exception cref="InvalidOperationException">当 Steam 平台初始化模式不正确或已经初始化时抛出</exception>
-        /// <exception cref="SteamInitException">当 Steam 平台初始化失败时抛出</exception>
+        /// <exception cref="PlatformInitException">当 Steam 平台初始化失败时抛出</exception>
         public bool Initialize()
         {
             if (IsOnline) throw new InvalidOperationException("Already initialized");
@@ -92,7 +92,7 @@ namespace GameDevKit.Platforms.Steam
             catch (Exception e)
             {
                 Log.PrintErr("SteamAPI Init failed! Is Steam running?\n", e);
-                throw new SteamInitException("Steam initialization failed.");
+                throw new PlatformInitException("Steam initialization failed.");
             }
 
             if (RunMode == PlatformRunMode.CLIENT)
@@ -108,7 +108,7 @@ namespace GameDevKit.Platforms.Steam
                     Log.PrintErr("You don't seem to have purchased the game.");
                     IsOnline = false;
                     SteamClient.Shutdown();
-                    throw new SteamInitException("Game ownership check failed.");
+                    throw new PlatformInitException("Game ownership check failed.");
                 }
             }
             else
@@ -119,7 +119,7 @@ namespace GameDevKit.Platforms.Steam
                 {
                     Log.PrintErr("Steam server is not valid after initialization.");
                     SteamServer.Shutdown();
-                    throw new SteamInitException("Steam server not valid.");
+                    throw new PlatformInitException("Steam server not valid.");
                 }
             }
 
@@ -195,6 +195,4 @@ namespace GameDevKit.Platforms.Steam
             GC.SuppressFinalize(this);
         }
     }
-
-    public class SteamInitException(string message) : Exception(message) { }
 }
