@@ -7,7 +7,7 @@
     <PackageLicenseExpression>EPL-2.0</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <PackageProjectUrl>https://github.com/GoWelkinDev/GameDevKit</PackageProjectUrl>
     <RepositoryUrl>https://github.com/GoWelkinDev/GameDevKit</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
